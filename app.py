@@ -19,11 +19,12 @@ from datetime import datetime, timedelta
 load_dotenv()
 
 # Get service account credentials from environment variable
-service_account_info = json.loads(os.getenv("GOOGLE_SERVICE_ACCOUNT"))
+
+credentials_path = os.getenv("GOOGLE_CREDENTIALS_PATH")
 calendar_id = os.getenv("GOOGLE_CALENDAR_ID")  # The calendar to update (must be shared with the service account)
 
-google_creds = service_account.Credentials.from_service_account_info(
-    service_account_info,
+google_creds = service_account.Credentials.from_service_account_file(
+    credentials_path,
     scopes=["https://www.googleapis.com/auth/calendar"]
 )
 

@@ -2,3 +2,4 @@ google-calendar-agent/
 
 .env
 
+service_account.json

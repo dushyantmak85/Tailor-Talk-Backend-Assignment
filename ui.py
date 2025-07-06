@@ -24,7 +24,8 @@ if st.button("Submit"):
     if user_input.strip():
         try:
             # Send the input to the FastAPI backend
-            payload = {"messages": [user_input], "model_name": MODEL_NAME}
+            payload = {  "model_name": MODEL_NAME,"system_prompt": "You are a helpful assistant that helps users manage their Google Calendar.",
+                       "messages": [user_input]}
             response = requests.post(API_URL, json=payload)
 
             # Display the response
